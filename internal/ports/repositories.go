@@ -20,7 +20,7 @@ type BookRepository interface {
 
 type CartRepository interface {
 	GetCart(ctx context.Context, id string) (*domain.Cart, error)
-	SaveCart(ctx context.Context, cart *domain.Cart) (*domain.Cart, error)
+	SaveCart(ctx context.Context, cart *domain.Cart) error
 	DeleteCart(ctx context.Context, id string) error
 }
 
@@ -32,5 +32,5 @@ type FavoriteRepository interface {
 }
 
 type EventPublisher interface {
-	Publish(ctx context.Context, event *Event) error
+	Publish(ctx context.Context, event Event) error
 }

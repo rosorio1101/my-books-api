@@ -40,22 +40,22 @@ func NewCart() *Cart {
 	}
 }
 
-func (c *Cart) AddItem(bookID, title string, price float64, quantity int) error {
+func (c *Cart) AddItem(book *Book, quantity int) error {
 	if quantity <= 0 {
 		return ErrInvalidQuantity
 	}
 
 	for i := range c.Items {
-		if c.Items[i].BookID == bookID {
+		if c.Items[i].BookID == book.ID {
 			c.Items[i].Quantity += quantity
 			c.UpdatedAt = time.Now()
 			return nil
 		}
 	}
 	c.Items = append(c.Items, CartItem{
-		BookID:   bookID,
-		Title:    title,
-		Price:    price,
+		BookID:   book.ID,
+		Title:    book.Title,
+		Price:    book.Price,
 		Quantity: quantity,
 	})
 	c.UpdatedAt = time.Now()
