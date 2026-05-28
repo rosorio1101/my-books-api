@@ -13,7 +13,7 @@ var ErrCartNotFound = errors.New("Cart not found")
 
 var ErrInvalidQuantity = errors.New("Invalid quantity, must be greater than zero")
 
-var ErrAlreadyInFavorites = errors.New("Book is already in favorites")
+var ErrAlreadyFavorited = errors.New("Book is already in favorites")
 
 var ErrFavoriteNotFound = errors.New("Favorite not found")
 
