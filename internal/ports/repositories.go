@@ -25,7 +25,7 @@ type CartRepository interface {
 }
 
 type FavoriteRepository interface {
-	GetFavorites(ctx context.Context, userID string) (*domain.Favorite, error)
+	GetFavorites(ctx context.Context, userID string) ([]*domain.Favorite, error)
 	AddFavorite(ctx context.Context, userID string, favorite *domain.Favorite) error
 	RemoveFavorite(ctx context.Context, userID string, bookID string) error
 	IsFavorite(ctx context.Context, userID string, bookID string) (bool, error)
